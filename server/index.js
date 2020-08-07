@@ -17,11 +17,11 @@ massive({
 
 app.use(express.json())
 
-// app.get("/api/products", ctrl.getAll)
-// app.get("/api/products/:id", ctrl.getOne)
-// app.put("/api/product/:id", ctrl.update)
-// app.post("/api/product/", ctrl.create)
-// app.delete("/api/products/:id", ctrl.delete)
+// app.get("/api/inventory", ctrl.getAll)
+// app.get("/api/inventory/:id", ctrl.getOne)
+// app.put("/api/inventory/:id", ctrl.update)
+// app.post("/api/inventory/", ctrl.create)
+// app.delete("/api/inventory/:id", ctrl.delete)
 
 app.listen(SERVER_PORT, () => {
     console.log(`Do you like my car? ${SERVER_PORT}`)
