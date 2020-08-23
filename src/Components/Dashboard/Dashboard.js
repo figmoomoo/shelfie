@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Product from "../Product/Product";
 import axios from "axios";
-import { response } from "express";
 
 class Dashboard extends Component {
   constructor() {
@@ -12,24 +11,31 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.getItem;
-  }
-
-  componentDidUpdate() {
-    this.getItem;
+    this.getItem();
   }
 
   getItem() {
     axios.get("/api/inventory").then((response) => {
-      this.setState({ Inventory: response.data });
+      console.log(response.data)
+      this.setState({ inventory: response.data });
     });
+  }
+
+  deleteItem = (id) => {
+    axios.delete(`/api/inventory/${id}`).then(()=>{
+      this.getItem();
+    })
   }
 
   render() {
     const list = this.state.inventory.map((product, index) => {
-      return <Product 
-        />;
+      return <Product product={product} deleteItem={this.deleteItem}/>;
     });
+    return(
+      <div>
+        {list}
+      </div>
+    )
   }
 }
 
